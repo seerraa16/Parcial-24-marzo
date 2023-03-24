@@ -1,5 +1,5 @@
 
-class CuentaBancaria:
+class banco:
     def __init__(self, nombre, fecha_apertura, saldo_inicial):
         self.id = None
         self.nombre = nombre
@@ -29,7 +29,7 @@ class CuentaBancaria:
             cuenta_destino.saldo += cantidad
             print(f"Se han transferido {cantidad}€ a la cuenta de {cuenta_destino.nombre}.")
             return True
-class Cuentapplazofijo(CuentaBancaria):
+class Cuentapplazofijo(banco):
     def __init__(self, nombre, fecha_apertura, fecha_vencimiento, saldo_inicial):
         super().__init__(nombre, fecha_apertura, saldo_inicial)
         self.fecha_vencimiento = fecha_vencimiento
@@ -38,4 +38,9 @@ class Cuentapplazofijo(CuentaBancaria):
         if date.today() < self.fecha_vencimiento:
             cantidad += cantidad * 0.05 
         return super().retirar_dinero(cantidad)
-class cuentaviip(cuentabancria):
+class cuentaviip(banco):
+    def __init__(self, nombre, fecha_apertura, saldo_inicial):
+        super().__init__(nombre, fecha_apertura, saldo_inicial)
+        self.saldonegativomaximo= saldonegmaximo
+    def retirar_dinero(self, cantidad):
+            
