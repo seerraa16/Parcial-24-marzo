@@ -42,5 +42,20 @@ class cuentaviip(banco):
     def __init__(self, nombre, fecha_apertura, saldo_inicial):
         super().__init__(nombre, fecha_apertura, saldo_inicial)
         self.saldonegativomaximo= saldonegmaximo
+
     def retirar_dinero(self, cantidad):
-            
+
+        if self.saldo - cantidad < -self.saldo_neg_max:
+            print("No se puede retirar más dinero del disponible en la cuenta.")
+            return False
+        else:
+            self.saldo -= cantidad
+            print(f"Se han retirado {cantidad}€ de la cuenta.")
+            return True   
+cuentas = []
+cuentaserra = banco("Serra", date(2004, 5, 24), 62594)
+cuentas.append(cuentaserra)
+fecha_vencimiento = date(2024, 5, 24)
+fecha_aper = date(2004, 5, 24)
+cuentaplazofijo = Cuentapplazofijo("Serra", fecha_aper, fecha_vencimiento, 62594)
+
