@@ -38,3 +38,4 @@ class Cuentapplazofijo(CuentaBancaria):
         if date.today() < self.fecha_vencimiento:
             cantidad += cantidad * 0.05 
         return super().retirar_dinero(cantidad)
+class cuentaviip(cuentabancria):
